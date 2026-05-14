@@ -6,7 +6,7 @@
 /*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 16:28:55 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/14 16:57:50 by vineet           ###   ########.fr       */
+/*   Updated: 2026/05/14 19:46:08 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,30 @@ The fork in the road. You check for a sign but only advance the index once,
 n = (n * 10) + (str[i] - '0');
 
 The Engine: This converts the "Symbol" into "Quantity."
+
+
+int	ft_atoi(const char *c)
+{
+	int	result;
+	int	i;
+	int	sign;
+
+	i = 0;
+	result = 0;
+	sign = 1;
+	while (c[i] == ' ' || (c[i] >= 9 && c[i] <= 12))
+		i++;
+	if (c[i] == '+' || c[i] == '-')
+		if (c[i] == '-')
+			sign = -1;
+	i++;
+	while (c[i] >= '0' && c[i] <= '9')
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (sign * result);
+}
 
 /* int	main(void)
 {
