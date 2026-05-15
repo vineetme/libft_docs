@@ -6,54 +6,53 @@
 /*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 09:15:55 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/13 12:47:24 by vineet           ###   ########.fr       */
+/*   Updated: 2026/05/15 17:52:49 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 /*The ft_strrchr function stands for "String Reverse Character". It searches a 
 string s to find the last occurrence of a specific character c. Instead of 
 starting at the beginning and reading left-to-right, it jumps to the end of the
 string and scans right-to-left.
 
-If it finds the character, it doesn't return the index (like 4 or 10); it returns
-a pointer directly to that specific character's memory address inside the string.
-If it doesn't find the character, it returns NULL.
+If it finds the character, it doesn't return the index (like 4 or 10); it 
+returns a pointer directly to that specific character's memory address inside 
+the string. If it doesn't find the character, it returns NULL.
 
 The Traps & Edge Cases
-The "Find the Stop Sign" Trap: What if the user calls ft_strrchr("Hello", '\0')? 
+The "Find Stop Sign" Trap: What if the user calls ft_strrchr("Hello", '\0')? 
 The null-terminator is technically part of the string's memory allocation. If 
-the user asks to find '\0', the function MUST return a pointer to the invisible 
-'\0' at the very end. If you cannot just return NULL.
+the user asks to find '\0', the function MUST return a pointer to the 
+invisible '\0' at the very end. If you cannot just return NULL.
 
-The Unsigned Underflow (The Infinite Loop): size_t is an unsigned integer. It 
-cannot be negative. If we write a loop like while (len >= 0) and subtract 1 
-from 0, the number doesn't become -1. It wraps around to 18,446,744,073,709,551,615. 
-The loop becomes infinite, and the program Segfaults. 
+The Unsigned Underflow: size_t is an unsigned integer. It cannot be negative. 
+If we write a loop like while (len >= 0) and subtract 1 from 0, the number 
+doesn't become -1. It wraps around to 18,446,744,073,709,551,615. The loop 
+becomes infinite, and the program Segfaults. 
 
 Why must we use size_t and not simply int ? Because a string's length cannot 
-physically be negative, but it can be massively huge. size_t on a modern 64-bit 
+physically be negative, but it can be massively huge. size_t on a 64-bit 
 Mac is a 64-bit unsigned integer. It doesn't waste a bit on negative numbers. 
-Its maximum value is 18.4 Quintillion (18 Exabytes). It guarantees that no matter 
-how much RAM your computer has, size_t can count every single byte of it safely.
+Its maximum value is 18.4 Quintillion. It guarantees that no matter 
+how much RAM your computer has, size_t can count every byte of it safely.
 
 Also ft_strlen returns a size_t. If you write int len = ft_strlen(s);, the 
-compiler sees you taking a massive 64-bit unsigned number and trying to cram it 
-into a smaller 32-bit signed box and gives mplicit conversion loses integer 
-precision and changes signedness error.
+compiler sees you taking a massive 64-bit unsigned number and trying to cram 
+it into a smaller 32-bit signed box and gives mplicit conversion loses 
+integer precision and changes signedness error.
 
-String in NULL (that does not mean its "empty", it means it doesn't exist): The 
-function must crash with a seg fault as thats the original behaviour. 
+String in NULL (that does not mean its "empty", it means it doesn't exist): 
+The function must crash with a seg fault as thats the original behaviour. 
 
-Also, important note: If you pass a string to strrchr that is missing its null-
-terminator, you trigger a Buffer Over-read.
+Also, important note: If you pass a string to strrchr that is missing its 
+null-terminator, you trigger a Buffer Over-read.
 
-The three common ways one can accidentally create and pass a "string" without a 
-null-terminator.
+The three common ways one can accidentally create and pass a "string" without 
+a null-terminator.
 
 1. The Manual Array Trap
-When you create a string using double quotes, the compiler adds the \0. But if 
-you build an array character by character, the compiler assumes you know exactly 
-what you are doing and does not help you.
+When you create a string using double quotes, the compiler adds the \0. But 
+if you build an array character by character, the compiler assumes you know 
+exactly what you are doing and does not help you.
 
 2. If you declare an array with a specific size, and you fill it with a double-
 quote string of that exact same size, the C compiler will drop the null- 
@@ -122,42 +121,45 @@ Return NULL.
 Why does it take an int c instead of a char c? Why would a function looking 
 for a character ask for an integer?
 
-Before the modern ANSI C standard was written, When you passed a char into a 
-function, the compiler automatically 'promoted' it to an int because older 
+Before the modern ANSI C standard was written, When you passed a char into
+a function, the compiler automatically 'promoted' it to an int because older 
 computer processors were faster at pushing word-sized integers into memory 
-registers. The standard library kept int c so they wouldn't break millions of 
-lines of code written in the 1970s.
+registers. The standard library kept int c so they wouldn't break millions 
+of lines of code written in the 1970s.
 
 The const Cast-Away
 Notice how the function takes a const char *s (promising not to change the 
 string), but it returns a regular char * (a pointer that can change the string). 
 Isn't returning a non-const pointer a security flaw?"
 
-"Yes, technically it is a flaw in the C standard library design. strrchr assumes 
-that the programmer who called the function originally owned the string and has 
-the right to modify it. We are forced to cast it to (char *) to respect the 
-officialstandard prototype, even though it strips away the const protection."*/
+"Yes, technically it is a flaw in the C standard library design. strrchr 
+assumes that the programmer who called the function originally owned the 
+string and has the right to modify it. We are forced to cast it to (char *) 
+to respect the official standard prototype, even though it strips away the const 
+protection."*/
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <strings.h>
+#include "libft.h"
 
-char  *ft_strrchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-   size_t   len;
+	size_t	len;
 
-   len = strlen(str);
-   if ((char)c == '\0')
-      return ((char *)&str[len]);
-   while (len > 0)
-   {
-      len--;
-      if (str[len] == (char)c)
-         return ((char *)&str[len]);
-   }
-   return (NULL);
+	len = strlen(str);
+	if ((char)c == '\0')
+		return ((char *)&str[len]);
+	while (len > 0)
+	{
+		len--;
+		if (str[len] == (char)c)
+			return ((char *)&str[len]);
+	}
+	return (NULL);
 }
 /*
+#include <stdio.h>
+#include <stdlib.h>
+#inclide <strings.h>
+
 int   main()
 {
    printf("%s\n", strrchr("ozne", 'o' ));
