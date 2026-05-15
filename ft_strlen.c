@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 09:06:01 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/15 16:21:51 by vmeharia         ###   ########.fr       */
+/*   Created: 2026/05/15 19:52:30 by vmeharia          #+#    #+#             */
+/*   Updated: 2026/05/15 19:52:39 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 /*The ft_strlen (string length) function counts how many "characters" are
 in a "string" and "returns" that "number". 
 It starts at the beginning of the string and counts one by one until it hits
