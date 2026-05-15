@@ -6,10 +6,9 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 23:57:24 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/15 00:01:11 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/15 15:02:43 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 /*Function Signature: int ft_atoi(const char *str)
 
 Parameters:
@@ -28,26 +27,23 @@ positive or negative.
 The Math: Iterates through numeric characters, converting each ASCII digit into 
 its mathematical equivalent and accumulating the total.
 
-Returns:
+Returns: The converted int. Returns 0 if no digits were found or string is empty.
 
-The converted int.
-
-Returns 0 if no digits were found or if the string is empty.
-
-2. The Traps & Gotchas
+The Traps & Gotchas
 The "One-Sign" Rule: The standard atoi only handles one sign. If the string 
-is --42 or +-42, it is considered invalid and returns 0. Your code handles 
-this correctly by using an if for the sign rather than a while.
+is --42 or +-42, it is considered invalid and returns 0.
 
 The White-Space Gauntlet: ASCII characters 9 through 13 are the "Invisible 
 Five": Horizontal Tab (\t), Line Feed (\n), Vertical Tab (\v), Form Feed (\f), 
-and Carriage Return (\r). You correctly targeted these using their decimal IDs.
+and Carriage Return (\r).
 
 Integer Overflow: This is the "Ghost in the Machine." A standard int can only
- hold values up to 2,147,483,647. If the input string is "9999999999999999", 
- your code will overflow, causing the bits to wrap around and produce a strange 
- result. (The official libc version often uses long internally to handle this, 
-but for basic libft, your logic is standard).
+hold values up to 2,147,483,647. If the input string is "9999999999999999", 
+your code will overflow, causing the bits to wrap around and produce a strange 
+result. However man page says Bugs:No checks for overflow or  un‐derflow  are  
+done. 
+
+Only base-10 input can be converted.
 
 The Logic (Pseudo-code)
 
@@ -95,6 +91,8 @@ n = (n * 10) + (str[i] - '0');
 
 The Engine: This converts the "Symbol" into "Quantity."*/
 
+#include "libft.h"
+
 int	ft_atoi(const char *c)
 {
 	int	result;
@@ -104,23 +102,30 @@ int	ft_atoi(const char *c)
 	i = 0;
 	result = 0;
 	sign = 1;
-	while (c[i] == ' ' || (c[i] >= 9 && c[i] <= 12))
+	while (c[i] == ' ' || (c[i] >= 9 && c[i] <= 13))
 		i++;
 	if (c[i] == '+' || c[i] == '-')
+	{
 		if (c[i] == '-')
 			sign = -1;
-	i++;
+		i++;
+	}
 	while (c[i] >= '0' && c[i] <= '9')
 	{
-		result = (result * 10) + (str[i] - '0');
+		result = (result * 10) + (c[i] - '0');
 		i++;
 	}
 	return (sign * result);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
 
-/* int	main(void)
+int	main(void)
 {
-	char num[] = "50";
+	char	num[] = "-50";
+
 	printf("func: %d\n", atoi(num));
 	printf("myfunc: %d\n", ft_atoi(num));
-} */
+}
+*/
