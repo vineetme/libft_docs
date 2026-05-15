@@ -39,7 +39,7 @@ If both dst and src are passed as NULL, it immediately returns dst (which
 evaluates to NULL) to prevent a segmentation fault.
 
 2. The Traps & Edge Cases
-The Moulinette NULL Trap: The standard C library memcpy is legally allowed to 
+The NULL Trap: The standard C library memcpy is legally allowed to 
 crash if you pass it NULL pointers. However, the 42 grading bot intentionally 
 passes two NULL pointers to test your defensive programming.
 
@@ -119,35 +119,37 @@ memory blocks are isolated. If the programmer suspects the memory might overlap,
 they are legally required by the C standard to use memmove instead, which is 
 slightly slower but mathematically calculates a safe copy direction to prevent
 corruption.*/
-
+/*
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+*/
+#include "libft.h"
 
-void  *ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-   size_t         i;
-   unsigned char  *d;
-   const unsigned char *s;
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-   if (dst == NULL && src == NULL)
-      return (dst);
-   d = (unsigned char *)dst;
-   s = (const unsigned char *)src;
-   i = 0;
-   while (i < n)
-   {
-      d[i] = s[i];
-      i++;
-   }
-   return (dst);
+	if (dst == NULL && src == NULL)
+		return (dst);
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	i = 0;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
 }
 /*
-int main()
+int	main(void)
 {
-   unsigned char dst[6] ={0};
-   const char src[] = {48,48,48};
-   printf("%s\n", (char *)ft_memcpy(dst, src, 2));
-   return (0);
+	unsigned char dst[6] ={0};
+	const char src[] = {48,48,48};
+	printf("%s\n", (char *)ft_memcpy(dst, src, 2));
+	return (0);
 }
 */

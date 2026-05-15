@@ -11,9 +11,7 @@
 /* ************************************************************************** */
 
 /* The ft_memset function takes a block of memory and completely overwrites a 
-specified number of bytes (len) with a single, repeating value (c). It doesn't 
-care if the memory holds text, numbers, or complex structures; it acts like a 
-steamroller, flattening everything in its path with the exact same byte.
+specified number of bytes (len) with a single, repeating value (c).
 
 The Traps & Edge Cases
 The void * Arithmetic Trap: A void * is an "unknown" pointer. The compiler knows 
@@ -87,36 +85,38 @@ Imagine you wanted to reset an array of ints to 0. Then later, you wanted to
 reset a massive custom struct to 0. If memset only accepted char *, the compiler 
 would scream at you every time you tried to pass an int * or a struct * into it.
 A void * can accept any pointer type without complaining. */
-
+/*
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+*/
+#include "libft.h"
 
-void    *ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-    unsigned char *ptr;
-    size_t  i;
+	unsigned char	*ptr;
+	size_t			i;
 
-    ptr = (unsigned char *)b;
-    i = 0;
-    while (i < len)
-    {
-        ptr[i] = (unsigned char)c;
-        i++;
-    }
-    return (b);
+	ptr = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+	{
+		ptr[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }
 /*
-int main()
+int	main(void)
 {
-    char ptr1[] = "abcd";
-    char ptr2[] = "abcd";
+	char ptr1[] = "abcd";
+	char ptr2[] = "abcd";
 
-    memset(ptr1, '2', 3);
-    ft_memset(ptr2, '2', 3);
-    
-    printf("%s\n", ptr1);
-    printf("%s\n", ptr2);
+	memset(ptr1, '2', 3);
+	ft_memset(ptr2, '2', 3);
+
+	printf("%s\n", ptr1);
+	printf("%s\n", ptr2);
 }
 
 Note: 
