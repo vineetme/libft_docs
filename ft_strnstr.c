@@ -1,42 +1,43 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
+/*									      */
+/*							  :::	   ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/13 14:32:08 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/13 18:35:06 by vineet           ###   ########.fr       */
-/*                                                                            */
+/*						      +:+ +:+	      +:+     */
+/*   By: vmeharia <vmeharia@student.42berlin.d	    +#+  +:+	   +#+	      */
+/*						  +#+#+#+#+#+	+#+	      */
+/*   Created: 2026/05/15 19:29:28 by vmeharia	       #+#    #+#	      */
+/*   Updated: 2026/05/15 19:43:44 by vmeharia         ###   ########.fr       */
+/*									      */
 /* ************************************************************************** */
-
 /*The ft_strnstr function searches for the first complete occurrence of the 
-needle string inside the haystack string. However, it will only search up to len
-characters of the haystack.
+needle string inside the haystack string. However, it will only search up to 
+len characters of the haystack.
 
-If it finds the needle, it returns a pointer to the very first character of the
-needle inside the haystack. If the needle is completely empty, it returns the
-haystack. If the needle isn't found within the limit, it returns NULL.
+If it finds the needle, it returns a pointer to the very first character of 
+the needle inside the haystack. If the needle is completely empty, it returns 
+the haystack. If the needle isn't found within the limit, it returns NULL.
 
 The Traps & Edge Cases
-The Empty Needle Trap: What if the user searches for ""? The C standard dictates 
-that searching for nothing should instantly return the entire haystack. 
+The Empty Needle Trap: What if the user searches for ""? The C standard 
+dictates that searching for nothing should instantly return the entire 
+haystack. 
 
-The "Cut-Off" Trap: Imagine haystack is "42School", needle is "School", and len 
-is 7. The word "School" exists, but the 'l' is at index 7. Because len is 7, we 
-are only allowed to look at indices 0 through 6 ("42Schoo"). The needle shouldn't 
-match! The entire needle should fit inside the allowed boundary.
+The "Cut-Off" Trap: Imagine haystack is "42School", needle is "School", and 
+len is 7. The word "School" exists, but the 'l' is at index 7. Because len 
+is 7, we are only allowed to look at indices 0 through 6 ("42Schoo"). The 
+needle shouldn't match! The entire needle should fit inside the allowed 
+boundary.
 
-The Partial Match Illusion: What if the haystack is "mississippi" and the needle 
-is "issip"? The code will find "iss" and fail on the first try. It needs to 
-cleanly reset and try again from the next letter. 
+The Partial Match Illusion: What if the haystack is "mississippi" and the 
+needle is "issip"? The code will find "iss" and fail on the first try. It 
+needs to cleanly reset and try again from the next letter. 
 
 The Logic (Pseudo-code)
 1. Is the needle completely empty?
    - YES: Return a pointer to the start of the haystack.
 2. Start walking through the haystack one step at a time (Index 'i').
-   - Keep walking AS LONG AS we haven't hit the 'len' limit AND haven't hit the
-   end of the haystack.
+   - Keep walking AS LONG AS we haven't hit the 'len' limit AND haven't hit 
+   the end of the haystack.
 3. At the current step 'i', look ahead to see if the needle starts here:
    - Create a second counter 'j' to look at the needle.
    - Keep looking ahead AS LONG AS:
@@ -84,42 +85,47 @@ j++ : Jump to the next character of the needle.
 
 if (needle[j] == '\0') return ((char *)&haystack[i]);
 
-If the inner loop broke because needle[j] hit \0, it means every single character 
-of the needle matched. We found it.
+If the inner loop broke because needle[j] hit \0, it means every single 
+character of the needle matched. We found it.
 
-&haystack[i] grabs the memory address of our anchor point, we cast away the const, 
-and return it.
+&haystack[i] grabs the memory address of our anchor point, we cast away 
+the const, and return it.
 
 i++;
 
-The look-ahead failed. Move the anchor forward one byte and restart the process.*/
+The look-ahead failed. Move the anchor forward one byte and restart the 
+process.*/
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    size_t  i;
-    size_t  j;
+	size_t	i;
+	size_t	j;
 
-    i = 0;
-    if (needle[0] == '\0')
-        return ((char *)haystack);
-    while (i < len && haystack[i] != '\0')
-    {
-        j = 0;
-        while ((i + j) < len && needle[j] != '\0' && haystack[i + j] == needle[j])
-            j++;
-        if (needle[j] == '\0')
-            return ((char *)&haystack[i]);
-        i++;
-    }
-    return (NULL);
+	i = 0;
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	while (i < len && haystack[i] != '\0')
+	{
+		j = 0;
+		while ((i + j) < len && needle[j] != '\0' && 
+			haystack[i + j] == needle[j])
+			j++;
+		if (needle[j] == '\0')
+			return ((char *)&haystack[i]);
+		i++;
+	}
+	return (NULL);
 }
 /*
+#include <stdlib.h>
+#include <stdio.h>
+#include <strings.h>
+
 int main()
 {
     printf("%s\n", strnstr("magadudu", "dudu", 8));
+    printf("%s\n", ft_strnstr("magadudu", "dudu", 8));
 }
 */
