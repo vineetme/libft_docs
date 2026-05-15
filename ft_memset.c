@@ -6,10 +6,9 @@
 /*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/13 18:43:12 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/14 09:50:16 by vineet           ###   ########.fr       */
+/*   Updated: 2026/05/15 17:39:10 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 /* The ft_memset function takes a block of memory and completely overwrites a 
 specified number of bytes (len) with a single, repeating value (c).
 
@@ -85,11 +84,7 @@ Imagine you wanted to reset an array of ints to 0. Then later, you wanted to
 reset a massive custom struct to 0. If memset only accepted char *, the compiler 
 would scream at you every time you tried to pass an int * or a struct * into it.
 A void * can accept any pointer type without complaining. */
-/*
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-*/
+
 #include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
@@ -107,6 +102,10 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 /*
+#include <stdio.h>
+#include <stddef.h>
+#include <string.h>
+
 int	main(void)
 {
 	char ptr1[] = "abcd";
