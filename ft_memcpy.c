@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 19:56:33 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/15 19:57:43 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/15 21:00:05 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ memory blocks are isolated. If the programmer suspects the memory might overlap,
 they are legally required by the C standard to use memmove instead, which is 
 slightly slower but mathematically calculates a safe copy direction to prevent
 corruption.*/
-/*
 
 #include "libft.h"
 
