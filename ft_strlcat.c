@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 17:55:41 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/15 18:07:10 by vmeharia         ###   ########.fr       */
+/*   Created: 2026/05/15 19:50:10 by vmeharia          #+#    #+#             */
+/*   Updated: 2026/05/15 19:50:58 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 /*The ft_strlcat function takes a source string and attaches it to the end of a 
 destination string. Just like strlcpy, it forces you to provide the total size 
 of the destination buffer (dstsize). It finds the end of the dst string, starts 
