@@ -6,11 +6,11 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 13:53:01 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/15 14:41:26 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/15 20:57:50 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-Notes:	1. checks if input isalpha || is digit
+
+/*	1. checks if input isalpha || is digit
 	2. isalpha checks if input isupper || islower
 	3. isupper checks if input is  upper case letter
 	4. islower checks if input is lowercase character
