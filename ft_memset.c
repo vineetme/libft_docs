@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/13 18:43:12 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/15 17:39:10 by vmeharia         ###   ########.fr       */
+/*   Created: 2026/05/15 19:48:21 by vmeharia          #+#    #+#             */
+/*   Updated: 2026/05/15 19:48:50 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /* The ft_memset function takes a block of memory and completely overwrites a 
