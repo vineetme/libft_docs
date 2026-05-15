@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/13 09:15:55 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/15 17:52:49 by vmeharia         ###   ########.fr       */
+/*   Created: 2026/05/15 19:55:08 by vmeharia          #+#    #+#             */
+/*   Updated: 2026/05/15 19:55:10 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 /*The ft_strrchr function stands for "String Reverse Character". It searches a 
 string s to find the last occurrence of a specific character c. Instead of 
 starting at the beginning and reading left-to-right, it jumps to the end of the
