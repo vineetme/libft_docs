@@ -33,10 +33,10 @@ Notes:	1.  Calloc returns a void *; That mean it returns a memory address.
 void	*ft_calloc(size_t count, size_t size)
 {
 	unsigned char	*ptr;
-	size_t		i;
+	size_t			i;
 
 	i = 0;
-	if (count != 0 && size > ((size_t)-1)/count)
+	if (count != 0 && size > ((size_t)-1) / count)
 		return (NULL);
 	ptr = malloc(count * size);
 	if (!ptr)

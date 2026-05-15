@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vmeharia <vmeharia@student.42berlin.d>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/14 16:28:55 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/14 19:46:08 by vmeharia         ###   ########.fr       */
+/*   Created: 2026/05/14 23:57:24 by vmeharia          #+#    #+#             */
+/*   Updated: 2026/05/15 00:01:11 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-Function Signature: int ft_atoi(const char *str)
+/*Function Signature: int ft_atoi(const char *str)
 
 Parameters:
 
@@ -93,8 +93,7 @@ The fork in the road. You check for a sign but only advance the index once,
 
 n = (n * 10) + (str[i] - '0');
 
-The Engine: This converts the "Symbol" into "Quantity."
-
+The Engine: This converts the "Symbol" into "Quantity."*/
 
 int	ft_atoi(const char *c)
 {
