@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 20:00:53 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/14 22:04:41 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/15 16:02:55 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -30,6 +30,9 @@ Notes:	1.  Calloc returns a void *; That mean it returns a memory address.
 	    not, return error.
 	9.  Finally - It sets the memory block to zero! 	
 */
+
+#include "libft.h"
+
 void	*ft_calloc(size_t count, size_t size)
 {
 	unsigned char	*ptr;
@@ -49,6 +52,9 @@ void	*ft_calloc(size_t count, size_t size)
 	return (ptr);
 }
 /*
+#include <stdio.h>
+#include <stdlib.h>
+
 int main(void)
 {
     // 1. Ask for 3 integers (each int is 4 bytes, so 12 bytes total)
