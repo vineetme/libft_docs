@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vineet <vineet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/14 09:53:06 by vineet            #+#    #+#             */
-/*   Updated: 2026/05/14 12:49:23 by vineet           ###   ########.fr       */
+/*   Created: 2026/05/15 19:56:33 by vmeharia          #+#    #+#             */
+/*   Updated: 2026/05/15 19:57:43 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,10 +120,7 @@ they are legally required by the C standard to use memmove instead, which is
 slightly slower but mathematically calculates a safe copy direction to prevent
 corruption.*/
 /*
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-*/
+
 #include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
@@ -145,6 +142,10 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	return (dst);
 }
 /*
+#include <stdlib.h>
+#include <stdio.h>
+#include <strings.h>
+
 int	main(void)
 {
 	unsigned char dst[6] ={0};
