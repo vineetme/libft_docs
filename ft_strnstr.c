@@ -6,9 +6,10 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d	    +#+  +:+	   +#+	      */
 /*						  +#+#+#+#+#+	+#+	      */
 /*   Created: 2026/05/15 19:29:28 by vmeharia	       #+#    #+#	      */
-/*   Updated: 2026/05/15 19:43:44 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/15 19:54:02 by vmeharia         ###   ########.fr       */
 /*									      */
 /* ************************************************************************** */
+
 /*The ft_strnstr function searches for the first complete occurrence of the 
 needle string inside the haystack string. However, it will only search up to 
 len characters of the haystack.
