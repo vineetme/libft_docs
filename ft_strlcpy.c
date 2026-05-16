@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 21:03:23 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/15 21:10:38 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 11:33:34 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		}
 		dst[i] = '\0';
 	}
-	return (strlen (src));
+	return (ft_strlen (src));
 }
 /*
 #include <stdlib.h>
