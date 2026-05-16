@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:47:40 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/11 19:47:43 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 13:44:59 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,3 +16,14 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
+/*
+#include <stdio.h>
+#include <ctype.h>
+
+int	main(void)
+{
+	printf("%c\n", ft_tolower('K'));
+	printf("%c\n", tolower('K'));
+	return (0);
+}
+*/
