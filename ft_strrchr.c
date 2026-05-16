@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 19:55:08 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/15 19:55:10 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 11:35:49 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ char	*ft_strrchr(const char *str, int c)
 {
 	size_t	len;
 
-	len = strlen(str);
+	len = ft_strlen(str);
 	if ((char)c == '\0')
 		return ((char *)&str[len]);
 	while (len > 0)
