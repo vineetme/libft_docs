@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 13:53:01 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/15 20:57:50 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 11:41:05 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,6 @@
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
 int	ft_isupper(int c)
 {
 	if (c >= 'A' && c <= 'Z')
@@ -38,13 +31,6 @@ int	ft_islower(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (0);
-	return (0);
-}
-
-int	ft_isalpha(int c)
-{
-	if (ft_isupper(c) || ft_islower(c))
-		return (1);
 	return (0);
 }
 
