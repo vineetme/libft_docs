@@ -14,7 +14,7 @@ Notes:	1. ft_bzero returns NOTHING. VOID.
 	2. While testing, use a '0' instead of 0, so printf works!
 */
 
-#include <libft.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t len)
 {
