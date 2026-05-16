@@ -6,11 +6,11 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/14 19:50:38 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/15 15:50:38 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 12:59:55 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*
-Notes:	1. ft_bzero returns NOTHING. VOID.
+
+/*	1. ft_bzero returns NOTHING. VOID.
 	2. While testing, use a '0' instead of 0, so printf works!
 */
 
