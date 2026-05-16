@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:38:37 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/11 19:38:40 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 16:31:58 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	else
 		return (ptr1[i] - ptr2[i]);
 }
-/*
-int	main()
+
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
 {
-	
-*/
+	printf("%d\n", ft_memcmp("abcd", "ab", 3));
+	printf("%d\n", memcmp("abcd", "ab", 3));
+}
