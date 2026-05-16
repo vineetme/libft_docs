@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:39:42 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/11 19:39:44 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 18:22:33 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,3 +117,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+/*
+#include <stdio.h>
+#include <string.h>
+
+int	main(void)
+{
+	printf("%p\n", ft_memmove("abcd", "ghost", 4));
+	return (0);
+}
+*/
