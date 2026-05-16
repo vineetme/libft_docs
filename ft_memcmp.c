@@ -17,8 +17,11 @@ Intended Mechanics: It takes two raw memory addresses and scans them left-
 to-right, byte by byte. It stops either when it hits the n byte limit, or 
 when it finds two bytes that do not match.
 
+IMPORTANT !!
 Returns: 0 if the memory blocks are identical up to n bytes. If different, it 
-returns the mathematical difference of the first mismatched byte pair.
+returns the mathematical difference of the ASCII value of the first mismatched 
+byte pair NORMALISED to -1, and +1. (Our fucntion however returns the exact 
+un-normalised difeerence and that is expected behaviour).  
 
 The Traps & Fatal Bugs
 The unsigned mandate: Memory must be interpreted as unsigned char. If you cast 
@@ -108,7 +111,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	else
 		return (ptr1[i] - ptr2[i]);
 }
-
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -117,3 +120,4 @@ int	main(void)
 	printf("%d\n", ft_memcmp("abcd", "ab", 3));
 	printf("%d\n", memcmp("abcd", "ab", 3));
 }
+*/
