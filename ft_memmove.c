@@ -123,7 +123,21 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 int	main(void)
 {
-	printf("%p\n", ft_memmove("abcd", "ghost", 4));
-	return (0);
+	char dst[] = "maga";
+	printf("%s\n", dst);
+	char src[] = "dudu";
+	ft_memmove(dst, src, 4);
+	printf("%s\n", dst);
+
+	char dst1[] = "maga";
+    printf("%s\n", dst1);
+    char src1[] = "dudu";
+    memmove(dst1, src1, 4);
+    printf("%s\n", dst1);
+
+	return (0); 
 }
+*/
+/*Testing this requires declaring dst and src as array in the stack,
+not string literal, which is in the .rodata.
 */
