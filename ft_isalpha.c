@@ -6,7 +6,7 @@
 /*   By: vmeharia <vmeharia@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/11 19:30:45 by vmeharia          #+#    #+#             */
-/*   Updated: 2026/05/11 19:30:48 by vmeharia         ###   ########.fr       */
+/*   Updated: 2026/05/16 12:54:47 by vmeharia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,13 @@ int	ft_isalpha(int c)
 	else
 		return (0);
 }
+/*
+#include <stdio.h>
+#include <strings.h>
+
+int	main(void)
+{
+	printf("%d\n", ft_isalpha('A'));
+	printf(%d\n", isalpha('A'));
+	return (0);
+*/
