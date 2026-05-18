@@ -110,12 +110,46 @@ Instead, we put all the 16-byte boxes out on the Heap (where there is infinite
 space),and we only keep a tiny, lightweight 8-byte arrow (the pointer head) on 
 the Stack to point to whichever box is currently first.
 
-Because the variable we are keeping on our desk (head) is an arrow (a pointer), 
-we must use a pointer to an arrow to change where it points! 
+Because the variable we are keeping in our head is a pointer, 
+we must use a pointer to a pointer to change where it points! 
 Why must we use pointer to pointer ? Because C is a "Pass-By-Value" language. 
 Whenever you pass a variable into a function, C refuses to give the function 
 the original item. It makes a photocopy of it and hands the photocopy to the 
 function. Thus, to change a variable, you must pass a pointer to that variable.
+
+Note on syntax:
+Our head here is only an 8-byte memory address (like 0x800). It does not 
+physically contain content or next. So how are we doing head->content and 
+head->next ?
+
+The secret lies in what -> actually does under the hood. It is a built-in 
+shortcut that performs two separate actions at the same time:
+a jump and a grab.
+
+The Long Way: (*head).content
+If the arrow operator did not exist, you would have to write this syntax 
+every single time:(*head).content
+
+Here is the mechanical breakdown of those two steps:
+
+The Jump (*head): The asterisk tells the compiler to dereference the pointer. 
+It reads the address 0x800, travels across the RAM to the Heap, and physically 
+stands in front of the massive 16-byte t_list box.
+
+The Grab (.content): The dot operator is used on physical structs. Now that you 
+are standing in front of the physical box, the dot tells the compiler to reach 
+inside and grab the specific content variable.
+
+The Shortcut: head->content
+Because C programmers have to interact with pointers to structs constantly, 
+writing (*pointer).member over and over gets tedious. Furthermore, 
+because of C's strict mathematical order of operations, if you forget the 
+parentheses and write *head.content, the compiler crashes.
+
+To fix this, the creators of C invented the -> operator.
+
+When you write head->content, the compiler instantly translates it into 
+(*head).content.
 */
 
 #include "libft.h"
@@ -132,14 +166,12 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 #include <stdlib.h>
 
 void print_list(t_list *head)
-{
-    t_list *current = head;
-    
+{   
     // We loop through the list until we hit the NULL pointer at the end
-    while (current != NULL)
+    while (head != NULL)
     {
-        printf("[%s] -> ", (char *)current->content);
-        current = current->next;
+        printf("[%s] -> ", (char *)head->content);
+        head = head->next;
     }
     printf("NULL\n\n");
 }
