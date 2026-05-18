@@ -24,3 +24,20 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (count);
 }
+/*
+#include <stdio.h>
+
+int main()
+{
+	t_list *head = NULL;
+	printf("Initial size: %d\n", ft_lstsize(head));
+
+	t_list *node1 = ft_lstnew("maga");
+	ft_lstadd_front(&head, node1);
+	printf("After adding maga: %d\n", ft_lstsize(head));	
+
+	t_list *node2 = ft_lstnew("dudu");
+	ft_lstadd_front(&head, node2);
+	printf("After adding dudu: %d\n", ft_lstsize(head));
+}
+*/
